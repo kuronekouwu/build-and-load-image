@@ -4,7 +4,7 @@ An automatic build image and upload image into server direct with [Docker REST A
 
 ## Parameter
 
-### image
+### url
 
 - Required: ✅
 - Description: `URL docker tcp server (Version required)`
