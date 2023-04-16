@@ -9,9 +9,9 @@ inputs:
     required: false
     default: 'latest'
   dockerfile:
-    description: 'Docker image file (Default: Dockerfile)'
+    description: 'Docker image file (Default: .)'
     required: false
-    default: 'Dockerfile'
+    default: '.'
   url:
     description: "URL docker tcp server (Ex. https://example.com/v1.41)"
     required: true
