@@ -7,6 +7,7 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const cp = require("child_process");
 const fs = require("fs");
+const axios = require("axios");
 
 const cpCfg = {
   stdio: "inherit",
@@ -53,10 +54,13 @@ const cpCfg = {
     await cp.execSync(`docker save ${imageName} > ${fileExportName}`, cpCfg);
     // Uploading to server
     console.log("📈 Uploading to server...");
-    await cp.execSync(
-      `curl -X POST '${tcpURL}/images/load' -H 'Content-Type: application/x-tar'  --data-binary "@${fileExportName}"`,
-      cpCfg
-    );
+    const stream = fs.createReadStream(`./${fileExportName}`);
+    await axios.post(`${tcpURL}/images/load`, stream, {
+      headers: {
+        "Content-Type": "application/x-tar",
+      },
+    });
+
     console.log(`✅ N O I C E`);
   } catch (error) {
     core.setFailed(error.message);
