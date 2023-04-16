@@ -1,3 +1,8 @@
+/**
+ * Docker auto build & load image into Docker REST API
+ * Ref from: https://github.com/mr-smithers-excellent/docker-build-push
+ */
+
 const core = require("@actions/core");
 const github = require("@actions/github");
 const cp = require("child_process");
