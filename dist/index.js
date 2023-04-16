@@ -9812,7 +9812,8 @@ try {
   core.setOutput("time", time);
 
   // Test docker version
-  console.log(cp.execSync('docker version'))
+  console.log("DOCKER VERSION IS")
+  cp.execSync('docker version')
 
   // Get the JSON webhook payload for the event that triggered the workflow
 //   const payload = JSON.stringify(github.context.payload, undefined, 2)
