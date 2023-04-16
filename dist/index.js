@@ -9813,7 +9813,10 @@ try {
 
   // Test docker version
   console.log("DOCKER VERSION IS")
-  cp.execSync('docker info')
+  cp.execSync('docker info', {
+    stdio: 'inherit',
+    maxBuffer: 50 * 1024 * 1024
+  })
 
   // Get the JSON webhook payload for the event that triggered the workflow
 //   const payload = JSON.stringify(github.context.payload, undefined, 2)
