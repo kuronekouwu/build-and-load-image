@@ -10,9 +10,9 @@ const cpCfg = {
 
 try {
   // Get config
-  const imageRef = core.getInput("image", { required: true });
-  const imageTag = core.getInput("version",  { required: true });
-  const dkFile = core.getInput('dockerfile', { required: true })
+  const imageRef = core.getInput("image", { required: false });
+  const imageTag = core.getInput("version",  { required: false });
+  const dkFile = core.getInput('dockerfile', { required: false })
   const tcpURL = core.getInput("url", { required: true });
 
   // Get docker info
