@@ -2,7 +2,6 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const cp = require("child_process");
 const fs = require('fs');
-const axios = require('axios');
 
 const cpCfg = {
   stdio: "inherit",
