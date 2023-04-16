@@ -9628,6 +9628,14 @@ module.exports = require("assert");
 
 /***/ }),
 
+/***/ 2081:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("child_process");
+
+/***/ }),
+
 /***/ 6113:
 /***/ ((module) => {
 
@@ -9791,6 +9799,10 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
+const cp = __nccwpck_require__(2081)
+
+
+
 
 try {
   // `who-to-greet` input defined in action metadata file
@@ -9798,9 +9810,13 @@ try {
   console.log(`Hello ${nameToGreet}!`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
+
+  // Test docker version
+  cp.execSync('docker version')
+
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+//   const payload = JSON.stringify(github.context.payload, undefined, 2)
+//   console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
