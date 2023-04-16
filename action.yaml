@@ -13,7 +13,7 @@ inputs:
     required: false
     default: './Dockerfile'
   url:
-    description: "URL docker tcp server"
+    description: "URL docker tcp server (Ex. https://example.com/v1.41)"
     required: true
   
 outputs:
