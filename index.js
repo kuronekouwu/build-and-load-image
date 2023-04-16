@@ -41,13 +41,13 @@ try {
   // Build it
   const fileExportName = `${sha}.tar`
   console.log('⚙️ Building to image')
-  cp.execSync(`docker build -t ${imageName} ${dkFile}`)
+  cp.execSync(`docker build -t ${imageName} ${dkFile}`, cpCfg)
   // Save image
   console.log('📝 Export to .tar file')
-  cp.execSync(`docker save ${imageName} > ${fileExportName}`)
+  cp.execSync(`docker save ${imageName} > ${fileExportName}`, cpCfg)
   // Uploading to server
   console.log('📈 Uploading to server...')
-  cp.execSync(`curl -X POST '${tcpURL}/images/load' -H 'Content-Type: application/x-tar'  --data-binary "@${fileExportName}"`)
+  cp.execSync(`curl -X POST '${tcpURL}/images/load' -H 'Content-Type: application/x-tar'  --data-binary "@${fileExportName}"`, cpCfg)
   console.log(`✅ N O I C E`)
 
 } catch (error) {
