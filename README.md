@@ -40,7 +40,7 @@ jobs:
         - name: Checkout code
         uses: actions/checkout@v2.3.1
         - name: Build & Upload image
-        uses: mrwan200/docker-auto-import@v2.4
+        uses: mrwan200/docker-auto-import@v0.1
         with:
             url: 'https://example.com/v1.4x'
 ```
